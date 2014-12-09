@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+    <title>Simple QR code generator</title>
+    <script type="text/javascript" src="libs/qrcode.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+</head>
+<body>
+    <input id="stringToEncode" type="text" value="" placeholder="Please insert what you want to turn into a QR code here..." style="width:75%" /><br />
+    <div id="qrcode" style="width:100px; height:100px; margin-top:15px;"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function(event) {
+          // alert("dom loaded");
+          App.init();
+
+          document.getElementById("stringToEncode").addEventListener("keydown", function (e) {
+            if (e.keyCode == 13) {
+              App.makeQRCode(document.getElementById("stringToEncode").value);
+            }
+          });
+        });
+    </script>
+
+</body>
+</html>
